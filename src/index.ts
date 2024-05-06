@@ -7,11 +7,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import router from './router'
 
-
-
 const app = express()
-
-
 app.use(cors({
     credentials: true
 }))
@@ -23,14 +19,14 @@ app.use(bodyParser.json())
 const server = http.createServer(app)
 
 server.listen(8080, () => {
-    console.log("local host running")
+    console.log("server running on http://localhost:8080/")
 })
 
 
-const MONGO_DB_URL = "mongodb+srv://sorgunlu2000:qG9lbzFvrdzO8b9V@cluster0.rc4o6dj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const MONGO_DB_URL = "mongodb+srv://mikailcansalman:b75J8VMHZip6WgBV@greenifyme.oenalsa.mongodb.net/?retryWrites=true&w=majority&appName=greenifyme"
 
 mongoose.Promise = Promise
 mongoose.connect(MONGO_DB_URL)
-mongoose.connection.on('error', (error: Error) => console.log(error))
+mongoose.connection.on('error', (error: Error) => console.log("error in index src"))
 
 app.use('/', router())
