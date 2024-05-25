@@ -14,8 +14,12 @@ app.use(cors({
 
 app.use(compression())
 app.use(cookieParser())
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(bodyParser.json())
 
+app.use('/uploads', express.static('uploads'));
 const server = http.createServer(app)
 
 server.listen(8080, () => {

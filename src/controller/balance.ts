@@ -7,20 +7,16 @@ export const getAllTransaction = async (
 ) => {
     try {
         const transaction = await getTransaction();
-        console.log("transaction",transaction)
         return res.status(200).json(transaction);
     } catch (error) {
         console.log(error);
-
         return res.sendStatus(400);
     }
 };
-
 export const addTransaction = async (
     req: express.Request,
     res: express.Response
 ) => {
-    console.log("req", req.body);
     try {
         const {
             transactionId,
